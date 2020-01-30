@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,20 +15,7 @@ public class Hacker : MonoBehaviour {
 		ShowMainMenu();
 	}
 
-
-	void ShowMainMenu()
-    {
-		currentScreen = Screen.MainMenu;
-		Terminal.ClearScreen();
-
-		Terminal.WriteLine("What would you like to hack into?");
-		Terminal.WriteLine("Press 1 for the local library");
-		Terminal.WriteLine("Press 2 for the police station");
-		Terminal.WriteLine("Press 3 for NASA");
-		Terminal.WriteLine("Enter your selection: ");
-	}
-
-
+	
 	void StartGame()
     {
 		currentScreen = Screen.Password;
@@ -45,8 +33,26 @@ public class Hacker : MonoBehaviour {
 		{
 			RunMainMenu(input);
         }
+		else if (currentScreen == Screen.Password)
+		{
+			CheckPassword(input);
+		}
 
     }
+
+
+	void ShowMainMenu()
+	{
+		currentScreen = Screen.MainMenu;
+		Terminal.ClearScreen();
+
+		Terminal.WriteLine("What would you like to hack into?");
+		Terminal.WriteLine("Press 1 for the local library");
+		Terminal.WriteLine("Press 2 for the police station");
+		Terminal.WriteLine("Press 3 for NASA");
+		Terminal.WriteLine("Enter your selection: ");
+	}
+
 
 	void RunMainMenu(string input)
     {
@@ -70,4 +76,32 @@ public class Hacker : MonoBehaviour {
 		}
 	}
 	
+
+		void CheckPassword(string input)
+	{
+		if (level == 1)
+		{
+			if (input == "books" || input == "aisle")
+			{
+				currentScreen = Screen.Win;
+				Terminal.WriteLine("You have hacked into the mainframe!!");
+			}
+			else
+			{
+				Terminal.WriteLine("Sorry, that is not the right password");
+			}
+		}
+		else if (level == 2)
+		{
+			if (input == "prisoner" || input == "handcuffs")
+			{
+				currentScreen = Screen.Win;
+				Terminal.WriteLine("You have hacked into the mainframe!!");
+			}
+			else
+			{
+				Terminal.WriteLine("Sorry, that is not the right password");
+			}
+		}
+	}
 }
