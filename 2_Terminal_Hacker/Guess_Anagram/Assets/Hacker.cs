@@ -1,11 +1,13 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Hacker : MonoBehaviour {
 
+	// Game configuration data
+	string[] level1Passwords = { "books", "aisle", "shelf", "password", "font", "borrow"};
+	string[] level2Passwords = { "prisoner", "handcuffs", "holster", "uniform", "arrest"};
+	
 	int level;
+	string password;
 
 	enum Screen {MainMenu, Password, Win };
 	Screen currentScreen;
@@ -15,13 +17,6 @@ public class Hacker : MonoBehaviour {
 		ShowMainMenu();
 	}
 
-	
-	void StartGame()
-    {
-		currentScreen = Screen.Password;
-		Terminal.WriteLine("You have chosen level " + level);
-		Terminal.WriteLine("Please enter the password: ");
-	}
 
 	// this should only decide how to handle input, not actually do it
 	void OnUserInput(string input)
@@ -56,15 +51,11 @@ public class Hacker : MonoBehaviour {
 
 	void RunMainMenu(string input)
     {
-		if (input == "1")
+		bool isValidLevelNumber = (input == "1" || input == "2");
+		if (isValidLevelNumber)
 		{
-			level = 1;
-			StartGame();
-		}
-		else if (input == "2")
-		{
-			level = 2;
-			StartGame();
+			level = int.Parse(input); // convert string to int
+			AskForPassword();
 		}
 		else if (input == "007")
 		{
@@ -77,31 +68,82 @@ public class Hacker : MonoBehaviour {
 	}
 	
 
-		void CheckPassword(string input)
+	void AskForPassword()
 	{
-		if (level == 1)
+		currentScreen = Screen.Password;
+		Terminal.ClearScreen();
+		SetRandomPassword();
+		Terminal.WriteLine("Enter your password, hint: " + password.Anagram());
+	}
+
+	private void SetRandomPassword()
+	{
+		switch (level)
 		{
-			if (input == "books" || input == "aisle")
-			{
-				currentScreen = Screen.Win;
-				Terminal.WriteLine("You have hacked into the mainframe!!");
-			}
-			else
-			{
-				Terminal.WriteLine("Sorry, that is not the right password");
-			}
+			case 1:
+				password = level1Passwords[Random.Range(0, level1Passwords.Length)];
+				break;
+			case 2:
+				password = level2Passwords[Random.Range(0, level2Passwords.Length)];
+				break;
+			default:
+				Debug.LogError("Invalid level number");
+				break;
 		}
-		else if (level == 2)
+	}
+
+	void CheckPassword(string input)
+	{
+		if (input == password)
 		{
-			if (input == "prisoner" || input == "handcuffs")
-			{
-				currentScreen = Screen.Win;
-				Terminal.WriteLine("You have hacked into the mainframe!!");
-			}
-			else
-			{
-				Terminal.WriteLine("Sorry, that is not the right password");
-			}
+			DisplayWinScreen();
 		}
+		else
+			{
+				AskForPassword();
+			}
+	}
+
+	void DisplayWinScreen()
+	{
+		currentScreen = Screen.Win;
+		Terminal.ClearScreen();
+		ShowLevelReward();
+	}
+
+	void ShowLevelReward()
+	{
+		switch (level)
+		{
+			case 1:
+				Terminal.WriteLine("Have a book...");
+				Terminal.WriteLine(@"
+     _________
+    /      / /
+   /      / /
+  /      / /    ~~~~~*~*~*~*
+ /______/_/
+(______(_/
+"
+				);
+				break;
+			case 2:
+				Terminal.WriteLine("Have a donut...");
+				Terminal.WriteLine(@"
+       ___
+    .-'   `-.
+  .'   . ;   `.
+ /   ; ... ' :  \
+|  :  (   ) ; ` |    mmmmmmmm
+ \   . ```  '  /
+  `.   . '   .'
+    `-.___.-'
+"
+				);
+				break;
+			default:
+				Debug.LogError("Invalid level reached");
+				break;
+		}		
 	}
 }
