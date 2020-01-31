@@ -5,7 +5,9 @@ public class Hacker : MonoBehaviour {
 	// Game configuration data
 	string[] level1Passwords = { "books", "aisle", "shelf", "password", "font", "borrow"};
 	string[] level2Passwords = { "prisoner", "handcuffs", "holster", "uniform", "arrest"};
-	
+	string[] level3Passwords = { "starfield", "telescope", "environment", "exploration", "astronauts"};
+	const string menuHint = "You may type menu at any time.";
+
 	int level;
 	string password;
 
@@ -24,6 +26,11 @@ public class Hacker : MonoBehaviour {
 		if (input == "menu") {
 			ShowMainMenu();
         }
+		else if (input == "quit" || input == "close" || input == "exit")
+		{
+			Terminal.WriteLine("If on the web close the browser tab");
+			Application.Quit();
+		}
 		else if (currentScreen == Screen.MainMenu) 
 		{
 			RunMainMenu(input);
@@ -51,7 +58,7 @@ public class Hacker : MonoBehaviour {
 
 	void RunMainMenu(string input)
     {
-		bool isValidLevelNumber = (input == "1" || input == "2");
+		bool isValidLevelNumber = (input == "1" || input == "2" || input == "3");
 		if (isValidLevelNumber)
 		{
 			level = int.Parse(input); // convert string to int
@@ -64,6 +71,7 @@ public class Hacker : MonoBehaviour {
 		else
 		{
 			Terminal.WriteLine("Please choose a valid level");
+			Terminal.WriteLine(menuHint);
 		}
 	}
 	
@@ -74,6 +82,7 @@ public class Hacker : MonoBehaviour {
 		Terminal.ClearScreen();
 		SetRandomPassword();
 		Terminal.WriteLine("Enter your password, hint: " + password.Anagram());
+		Terminal.WriteLine(menuHint);
 	}
 
 	private void SetRandomPassword()
@@ -85,6 +94,9 @@ public class Hacker : MonoBehaviour {
 				break;
 			case 2:
 				password = level2Passwords[Random.Range(0, level2Passwords.Length)];
+				break;
+			case 3:
+				password = level3Passwords[Random.Range(0, level3Passwords.Length)];
 				break;
 			default:
 				Debug.LogError("Invalid level number");
@@ -99,9 +111,9 @@ public class Hacker : MonoBehaviour {
 			DisplayWinScreen();
 		}
 		else
-			{
-				AskForPassword();
-			}
+		{
+			AskForPassword();
+		}
 	}
 
 	void DisplayWinScreen()
@@ -109,6 +121,7 @@ public class Hacker : MonoBehaviour {
 		currentScreen = Screen.Win;
 		Terminal.ClearScreen();
 		ShowLevelReward();
+		Terminal.WriteLine(menuHint);
 	}
 
 	void ShowLevelReward()
@@ -138,6 +151,16 @@ public class Hacker : MonoBehaviour {
  \   . ```  '  /
   `.   . '   .'
     `-.___.-'
+"
+				);
+				break;
+			case 3:
+				Terminal.WriteLine("Welcome to NASA's database system!");
+				Terminal.WriteLine(@"
+ ,-,-.  +   .  *  
+/.( +.\          *
+\ {. */    +   `
+ `-`-'-'
 "
 				);
 				break;
