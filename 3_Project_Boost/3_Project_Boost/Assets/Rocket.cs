@@ -8,8 +8,8 @@ public class Rocket : MonoBehaviour {
 	Rigidbody rigidBody;
 	AudioSource audioSource;
 
-	[SerializeField] float rcsThrust = 100f;
-	[SerializeField] float mainThrust = 450f;
+	[SerializeField] float rcsThrust = 250f;
+	[SerializeField] float mainThrust = 25f;
 
 	// Use this for initialization
 	void Start () {
@@ -22,6 +22,23 @@ public class Rocket : MonoBehaviour {
 	void Update () {
 		Thrust();
 		Rotate();
+	}
+
+	void OnCollisionEnter(Collision collision)
+	{
+		switch (collision.gameObject.tag)
+		{
+			case "Friendly":
+				print("OK"); // TODO - remove this line
+				break;
+			case "Fuel":
+				print("Fuel");
+				break;
+			default:
+				print("dead");
+				// TODO - kill player
+				break;
+		}
 	}
 
 
