@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
+
+//TODO - fix lighting bug
 
 public class Rocket : MonoBehaviour {
 
@@ -29,14 +29,25 @@ public class Rocket : MonoBehaviour {
 		switch (collision.gameObject.tag)
 		{
 			case "Friendly":
-				print("OK"); // TODO - remove this line
 				break;
-			case "Fuel":
-				print("Fuel");
+			case "Finish":
+				print("Hit Finish");
+				switch (SceneManager.GetActiveScene().buildIndex)
+				{
+					case 0:
+						SceneManager.LoadScene(1);
+						break;
+					case 1:
+						SceneManager.LoadScene(2);
+						break;
+					case 2:
+						SceneManager.LoadScene(2);
+						break;
+				}				
 				break;
 			default:
 				print("dead");
-				// TODO - kill player
+				SceneManager.LoadScene(0);
 				break;
 		}
 	}
