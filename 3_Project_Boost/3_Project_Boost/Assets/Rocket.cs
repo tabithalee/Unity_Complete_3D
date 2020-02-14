@@ -37,7 +37,12 @@ public class Rocket : MonoBehaviour {
 		{
 			RespondToThrustInput();
 			RespondToRotateInput();
-		}		
+		}
+
+		// debug keys available whenever
+		//TODO - only if debug on
+		RespondToDebugKeys();
+
 	}
 
 	void OnCollisionEnter(Collision collision)
@@ -123,6 +128,20 @@ public class Rocket : MonoBehaviour {
 			audioSource.PlayOneShot(mainEngine);
 		}
 		mainEngineParticles.Play();
+	}
+
+	private void RespondToDebugKeys()
+	{
+		if (Input.GetKeyDown(KeyCode.L))
+		{
+			LoadNextLevel();
+		}
+		else if (Input.GetKeyDown(KeyCode.C))
+		{
+			// toggle collision
+			rigidBody.Sleep();
+			rigidBody.detectCollisions = false;
+		}
 	}
 
 	private void RespondToRotateInput()
