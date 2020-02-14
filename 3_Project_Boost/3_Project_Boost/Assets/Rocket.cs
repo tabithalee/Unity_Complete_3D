@@ -88,6 +88,20 @@ public class Rocket : MonoBehaviour {
 
 	private void LoadNextLevel()
 	{
+		int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+		int nextSceneIndex = currentSceneIndex + 1;
+
+		if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
+		{
+			LoadFirstLevel();
+		}
+		else
+		{
+			SceneManager.LoadScene(nextSceneIndex);
+		}
+
+
+		/*
 		switch (SceneManager.GetActiveScene().buildIndex)
 		{
 			case 0:
@@ -99,7 +113,7 @@ public class Rocket : MonoBehaviour {
 			case 2:
 				SceneManager.LoadScene(2);
 				break;
-		}
+		}*/
 	}
 
 
