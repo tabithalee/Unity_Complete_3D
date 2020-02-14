@@ -10,6 +10,8 @@ public class Rocket : MonoBehaviour {
 	enum State { Alive, Dying, Transcending};
 	State state = State.Alive;
 
+	bool collisionsDisabled = false;
+
 	[SerializeField] float rcsThrust = 250f;
 	[SerializeField] float mainThrust = 25f;
 	[SerializeField] float loadLevelDelay = 2f;
@@ -40,14 +42,15 @@ public class Rocket : MonoBehaviour {
 		}
 
 		// debug keys available whenever
-		//TODO - only if debug on
-		RespondToDebugKeys();
-
+		if (Debug.isDebugBuild)
+		{
+			RespondToDebugKeys();
+		}
 	}
 
 	void OnCollisionEnter(Collision collision)
 	{
-		if (state != State.Alive) { return;	} // ignore collisions when dead
+		if (state != State.Alive || collisionsDisabled) { return;	}
 
 		switch (collision.gameObject.tag)
 		{
@@ -139,8 +142,7 @@ public class Rocket : MonoBehaviour {
 		else if (Input.GetKeyDown(KeyCode.C))
 		{
 			// toggle collision
-			rigidBody.Sleep();
-			rigidBody.detectCollisions = false;
+			collisionsDisabled = !collisionsDisabled;
 		}
 	}
 
