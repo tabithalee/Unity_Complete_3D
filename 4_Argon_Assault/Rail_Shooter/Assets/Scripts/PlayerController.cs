@@ -21,11 +21,16 @@ public class PlayerController : MonoBehaviour {
 
 	float xThrow, yThrow;
 
+	bool isControlEnabled = true;
+
 	// Update is called once per frame
 	void Update ()
 	{
-		ProcessTranslation();
-		ProcessRotation();
+		if (isControlEnabled)
+		{
+			ProcessTranslation();
+			ProcessRotation();
+		}
 	}
 
 	private void ProcessRotation()
@@ -58,11 +63,8 @@ public class PlayerController : MonoBehaviour {
 		transform.localPosition = new Vector3(clampedXPos, clampedYPos, transform.localPosition.z);
 	}
 
-	public void Temp(bool receivedMessage)
+	void OnPlayerDeath() // called by string reference
 	{
-		if (receivedMessage)
-		{
-			print("received message from collision handler");
-		}
+		isControlEnabled = false;
 	}
 }
