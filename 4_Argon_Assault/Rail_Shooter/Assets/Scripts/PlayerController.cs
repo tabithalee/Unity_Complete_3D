@@ -4,25 +4,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-public class Player : MonoBehaviour {
+public class PlayerController : MonoBehaviour {
 
-	[Tooltip("In ms^-1")][SerializeField] float xySpeed = 20f;
+	[Header("General")]
+	[Tooltip("In ms^-1")][SerializeField] float controlSpeed = 20f;
 	[Tooltip("In m")][SerializeField] float xRange = 9f;
 	[Tooltip("In m")] [SerializeField] float yRange = 5f;
 
+	[Header("Screen-Position Based")]
 	[SerializeField] float positionPitchFactor = -5f;
-	[SerializeField] float controlPitchFactor = -30f;
 	[SerializeField] float positionYawFactor = 4f;
-	[SerializeField] float controlRollFactor = -20f;
 
+	[Header("Control-throw Based")]
+	[SerializeField] float controlPitchFactor = -30f;
+	[SerializeField] float controlRollFactor = -20f;
 
 	float xThrow, yThrow;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
 	// Update is called once per frame
 	void Update ()
 	{
@@ -48,15 +46,23 @@ public class Player : MonoBehaviour {
 		xThrow = CrossPlatformInputManager.GetAxis("Horizontal");
 		yThrow = CrossPlatformInputManager.GetAxis("Vertical");
 
-		float xOffset = xThrow * xySpeed * Time.deltaTime;
+		float xOffset = xThrow * controlSpeed * Time.deltaTime;
 		float rawXPos = transform.localPosition.x + xOffset;
 
-		float yOffset = yThrow * xySpeed * Time.deltaTime;
+		float yOffset = yThrow * controlSpeed * Time.deltaTime;
 		float rawYPos = transform.localPosition.y + yOffset;
 
 		float clampedXPos = Mathf.Clamp(rawXPos, -xRange, xRange);
 		float clampedYPos = Mathf.Clamp(rawYPos, -yRange, yRange);
 
 		transform.localPosition = new Vector3(clampedXPos, clampedYPos, transform.localPosition.z);
+	}
+
+	public void Temp(bool receivedMessage)
+	{
+		if (receivedMessage)
+		{
+			print("received message from collision handler");
+		}
 	}
 }

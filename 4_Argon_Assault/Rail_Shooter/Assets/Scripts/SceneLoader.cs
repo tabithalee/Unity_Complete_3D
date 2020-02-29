@@ -1,15 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MusicPlayer : MonoBehaviour {
-
-	void Awake()
-	{
-		DontDestroyOnLoad(this.gameObject);
-	}
+public class SceneLoader : MonoBehaviour {
 
 	// Use this for initialization
-	void Start () {
+	void Start()
+	{
 		Invoke("LoadFirstScene", 10.0f);
 	}
 
