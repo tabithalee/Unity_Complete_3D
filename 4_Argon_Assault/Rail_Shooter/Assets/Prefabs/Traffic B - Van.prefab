@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 198524395634887270}
   - component: {fileID: 199650454639496308}
   m_Layer: 0
-  m_Name: Bullets
+  m_Name: Bullets Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 198853494696431554}
   - component: {fileID: 199286380792964574}
   m_Layer: 0
-  m_Name: Bullets (1)
+  m_Name: Bullets Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -226,7 +226,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1525539254360826
 GameObject:
   m_ObjectHideFlags: 1
@@ -1263,6 +1263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7838dd13e9a32245b723f1260326905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathFX: {fileID: 1500385670921860}
   levelLoadDelay: 1
 --- !u!114 &114883190868969666
 MonoBehaviour:
@@ -10354,7 +10355,7 @@ ParticleSystem:
   lengthInSec: 0.5
   simulationSpeed: 1
   stopAction: 0
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
