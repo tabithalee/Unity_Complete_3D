@@ -95,3 +95,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70c9838a2d574c54abdedd7c4aa78e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathFX: {fileID: 1296891454175240, guid: 947c45b88b7ed274596e77ac51ba80d6, type: 2}
