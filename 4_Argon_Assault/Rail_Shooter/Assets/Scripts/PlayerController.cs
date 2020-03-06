@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour {
 	[Header("Control-throw Based")]
 	[SerializeField] float controlPitchFactor = -30f;
 	[SerializeField] float controlRollFactor = -20f;
+	[SerializeField] GameObject[] guns;
 
 	float xThrow, yThrow;
 
@@ -30,8 +31,10 @@ public class PlayerController : MonoBehaviour {
 		{
 			ProcessTranslation();
 			ProcessRotation();
+			ProcessFiring();
 		}
 	}
+
 
 	private void ProcessRotation()
 	{
@@ -62,6 +65,38 @@ public class PlayerController : MonoBehaviour {
 
 		transform.localPosition = new Vector3(clampedXPos, clampedYPos, transform.localPosition.z);
 	}
+
+
+	private void ProcessFiring()
+	{
+		if (CrossPlatformInputManager.GetButton("Fire"))
+		{
+			ActivateGuns();
+		}
+		else
+		{
+			DeactivateGuns();
+		}
+	}
+
+
+	private void ActivateGuns()
+	{
+		foreach (GameObject gun in guns)
+		{
+			gun.SetActive(true);
+		}
+	}
+
+
+	private void DeactivateGuns()
+	{
+		foreach (GameObject gun in guns)
+		{
+			gun.SetActive(false);
+		}
+	}
+
 
 	void OnPlayerDeath() // called by string reference
 	{

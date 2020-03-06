@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 198524395634887270}
   - component: {fileID: 199650454639496308}
   m_Layer: 0
-  m_Name: Bullets Right
+  m_Name: Guns Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 198853494696431554}
   - component: {fileID: 199286380792964574}
   m_Layer: 0
-  m_Name: Bullets Left
+  m_Name: Guns Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
