@@ -556,7 +556,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1298605955591040}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.38, y: 0, z: -0.74}
+  m_LocalPosition: {x: 1.19, y: 0.04, z: -0.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4891209868715386}
@@ -569,7 +569,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1436159308051484}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.36, y: 0, z: -0.6}
+  m_LocalPosition: {x: -1.2, y: 0, z: -0.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4891209868715386}
@@ -1283,6 +1283,9 @@ MonoBehaviour:
   positionYawFactor: 4
   controlPitchFactor: -30
   controlRollFactor: -30
+  guns:
+  - {fileID: 1298605955591040}
+  - {fileID: 1436159308051484}
 --- !u!198 &198524395634887270
 ParticleSystem:
   m_ObjectHideFlags: 1
