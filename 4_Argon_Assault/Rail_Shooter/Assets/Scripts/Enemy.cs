@@ -32,7 +32,11 @@ public class Enemy : MonoBehaviour {
 
 	void OnParticleCollision(GameObject other)
 	{
-		ProcessHit();
+		if (other.tag != "Terrain")
+		{
+			ProcessHit();
+		}
+
 		if (hits <= 0) // <= accounts for overshoot
 		{
 			KillEnemy();
