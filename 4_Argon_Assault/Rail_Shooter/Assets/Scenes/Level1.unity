@@ -1940,6 +1940,36 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 198761460565460652, guid: 3fbf029deb54a5c43b79b677abca0bb9,
+        type: 2}
+      propertyPath: ShapeModule.type
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 198524395634887270, guid: 3fbf029deb54a5c43b79b677abca0bb9,
+        type: 2}
+      propertyPath: TrailModule.widthOverTrail.scalar
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 198524395634887270, guid: 3fbf029deb54a5c43b79b677abca0bb9,
+        type: 2}
+      propertyPath: TrailModule.lifetime.scalar
+      value: 0.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 198853494696431554, guid: 3fbf029deb54a5c43b79b677abca0bb9,
+        type: 2}
+      propertyPath: TrailModule.lifetime.scalar
+      value: 0.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 198853494696431554, guid: 3fbf029deb54a5c43b79b677abca0bb9,
+        type: 2}
+      propertyPath: TrailModule.widthOverTrail.scalar
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 198761460565460652, guid: 3fbf029deb54a5c43b79b677abca0bb9,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3fbf029deb54a5c43b79b677abca0bb9, type: 2}
   m_IsPrefabParent: 0
