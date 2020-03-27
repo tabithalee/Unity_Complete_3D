@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
 	[Tooltip("In ms^-1")][SerializeField] float controlSpeed = 36f;
 	[Tooltip("In m")][SerializeField] float xRange = 10.5f;
 	[Tooltip("In m")] [SerializeField] float yRange = 6f;
+	[Tooltip("Shooting Audio")] [SerializeField] GameObject pewAudio;
 
 	[Header("Screen-Position Based")]
 	[SerializeField] float positionPitchFactor = -5f;
@@ -72,10 +73,12 @@ public class PlayerController : MonoBehaviour {
 		if (CrossPlatformInputManager.GetButton("Fire"))
 		{
 			SetGunsActive(true);
+			pewAudio.SetActive(true);
 		}
 		else
 		{
 			SetGunsActive(false);
+			pewAudio.SetActive(false);
 		}
 	}
 
