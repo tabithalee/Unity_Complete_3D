@@ -25,7 +25,6 @@ public class EnemyDamage : MonoBehaviour {
 	void ProcessHit ()
 	{
 		hitPoints -= 1; // TODO - make hit points variable per tower
-		print("Current hit points: " + hitPoints);
 	}
 
 
