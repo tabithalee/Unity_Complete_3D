@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour {
 
-	//[SerializeField] List<Waypoint> path;
-
 	// Use this for initialization
 	void Start () {
 		// ok because there will only be one pathfinder object in this simple world

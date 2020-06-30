@@ -5,18 +5,13 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour {
 
-	[SerializeField] int hitPoints = 10;
+	public int hitPoints = 10;
 	[SerializeField] ParticleSystem hitParticlePrefab;
 	[SerializeField] ParticleSystem deathParticlePrefab;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
 	private void OnParticleCollision(GameObject other)
 	{
-		ProcessHit();
+		ProcessHit(other);
 
 		if (hitPoints <= 0)
 		{
@@ -24,9 +19,9 @@ public class EnemyDamage : MonoBehaviour {
 		}
 	}
 
-	void ProcessHit ()
+	void ProcessHit (GameObject towerBullet)
 	{
-		hitPoints -= 1; // TODO - make hit points variable per tower
+		hitPoints -= towerBullet.GetComponentInParent<Tower>().damagePoints;
 		hitParticlePrefab.Play();
 	}
 
@@ -34,7 +29,8 @@ public class EnemyDamage : MonoBehaviour {
 	private void KillEnemy()
 	{
 		var vfx = Instantiate(deathParticlePrefab, transform.position, Quaternion.identity);
-		vfx.Play(); //TODO - write a co-routine to destroy vfx
+		vfx.Play();
+		Destroy(vfx.gameObject, vfx.main.duration);
 		Destroy(gameObject);
 	}
 }
