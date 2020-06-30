@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\EnemySpawner.cs" />
      <Compile Include="Assets\Scripts\Pathfinder.cs" />
      <Compile Include="Assets\Scripts\Tower.cs" />
+     <Compile Include="Assets\Scripts\TowerFactory.cs" />
      <Compile Include="Assets\Scripts\Waypoint.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/Users/tabit/Documents/1 My Actual Documents/Repos/Unity_Complete_3D/5_Realm_Rush_Tower/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
