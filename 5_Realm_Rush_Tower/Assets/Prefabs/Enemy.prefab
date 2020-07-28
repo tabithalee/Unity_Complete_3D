@@ -498,7 +498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e601a779d8bde4690bce2f2f3644a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 22
+  hitPoints: 7
   hitParticlePrefab: {fileID: 198671845628885430}
   deathParticlePrefab: {fileID: 198811818016946674, guid: 1a51bfda454239a41afb7dee687c6ac0,
     type: 2}

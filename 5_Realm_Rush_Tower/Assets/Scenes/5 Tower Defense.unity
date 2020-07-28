@@ -1987,7 +1987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3d9cd67091393140bc279b06969d9e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerLimit: 8
+  towerLimit: 6
   towerPrefab: {fileID: 114169593311235094, guid: 220ab9791d5ddc2419466bcecbc7776e,
     type: 2}
   towerParentTransform: {fileID: 356934548}
@@ -2838,7 +2838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2b48bfb6f844a4c9470dd898d61acc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsBetweenSpawns: 10
+  secondsBetweenSpawns: 3
   enemyPrefab: {fileID: 114742686089090148, guid: 04f81ff9814844ccfa08226f8d46a3f4,
     type: 2}
   enemyParentTransform: {fileID: 1450755393}
