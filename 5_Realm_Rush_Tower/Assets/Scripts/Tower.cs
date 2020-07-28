@@ -13,7 +13,6 @@ public class Tower : MonoBehaviour {
 	// where the tower is standing
 	public Waypoint baseWaypoint;
 
-	// hitpoints this tower can inflict
 	public int damagePoints = 1;
 
 	// State
