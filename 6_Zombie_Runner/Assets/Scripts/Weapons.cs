@@ -9,6 +9,8 @@ public class Weapons : MonoBehaviour
     [SerializeField] float range = 100f;
     [SerializeField] float damage = 30f;
     [SerializeField] ParticleSystem muzzleFlash;
+    [SerializeField] GameObject hitEffect;
+
     void Update()
     {
         // using mouse button instead of a key
@@ -35,8 +37,9 @@ public class Weapons : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(FPCamera.transform.position, FPCamera.transform.forward, out hit, range))
         {
-            Debug.Log("Hit " + hit.transform.name);
-            // TODO - add hit vfx
+
+            CreateImpact(hit);
+
             EnemyHealth target = hit.transform.GetComponent<EnemyHealth>();
 
             if (target == null)
@@ -52,5 +55,11 @@ public class Weapons : MonoBehaviour
             // don't think we actually need the following statement...
             return;
         }
+    }
+
+    private void CreateImpact(RaycastHit hit)
+    {
+        GameObject impact = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
+        Destroy(impact, 0.1f);
     }
 }
