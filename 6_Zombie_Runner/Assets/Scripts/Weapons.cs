@@ -7,7 +7,7 @@ public class Weapons : MonoBehaviour
 {
     [SerializeField] Camera FPCamera;
     [SerializeField] float range = 100f;
-
+    [SerializeField] float damage = 30f;
     void Update()
     {
         // using mouse button instead of a key
@@ -20,7 +20,25 @@ public class Weapons : MonoBehaviour
     private void Shoot()
     {
         RaycastHit hit;
-        Physics.Raycast(FPCamera.transform.position, FPCamera.transform.forward, out hit, range);
-        Debug.Log("Hit " + hit.transform.name);
+        if (Physics.Raycast(FPCamera.transform.position, FPCamera.transform.forward, out hit, range))
+        {
+            Debug.Log("Hit " + hit.transform.name);
+            // TODO - add hit vfx
+            EnemyHealth target = hit.transform.GetComponent<EnemyHealth>();
+
+            if (target == null)
+            {
+                return;
+            }
+
+            target.TakeDamage(damage);
+        }
+        else
+        {
+            // protect against null reference
+            // don't think we actually need the following statement...
+            return;
+        }
+
     }
 }
