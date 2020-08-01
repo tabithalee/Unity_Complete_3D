@@ -348,6 +348,8 @@ MonoBehaviour:
   range: 100
   damage: 30
   muzzleFlash: {fileID: 609729990257646246}
+  hitEffect: {fileID: 367951421185085831, guid: 62f6dee2c6331524485e3e15925201a4,
+    type: 3}
 --- !u!1001 &244001076
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -358,12 +360,12 @@ PrefabInstance:
     - target: {fileID: 2337074158996965286, guid: ada2587319194f542957a8c2ae277cb9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.205
+      value: 0.29
       objectReference: {fileID: 0}
     - target: {fileID: 2337074158996965286, guid: ada2587319194f542957a8c2ae277cb9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.178
+      value: -0.25
       objectReference: {fileID: 0}
     - target: {fileID: 2337074158996965286, guid: ada2587319194f542957a8c2ae277cb9,
         type: 3}
