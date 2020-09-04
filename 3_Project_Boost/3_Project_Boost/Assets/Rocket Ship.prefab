@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4380921392187832}
   - component: {fileID: 108602209078442278}
   m_Layer: 0
-  m_Name: Spot Light (1)
+  m_Name: Rocket Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -551,7 +551,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: be53bb3d41992034c8218635d1803801, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 0.77
@@ -647,8 +647,8 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 26.8
-  m_Range: 78.71
+  m_Intensity: 18.2
+  m_Range: 42.9
   m_SpotAngle: 6
   m_CookieSize: 10
   m_Shadows:

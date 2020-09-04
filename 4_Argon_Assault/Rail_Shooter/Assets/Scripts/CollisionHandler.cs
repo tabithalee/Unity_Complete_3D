@@ -8,8 +8,23 @@ public class CollisionHandler : MonoBehaviour {
 
 	[Tooltip("FX prefab on player")][SerializeField] GameObject deathFX;
 
-	[Tooltip("In seconds")][SerializeField] float levelLoadDelay = 1f;
+	[Tooltip("In seconds")] public float levelLoadDelay = 1f;
 
+	[SerializeField] EndCanvas endCanvas;
+	[SerializeField] BoxCollider boxCollider;
+
+	void Start ()
+	{
+		StartCoroutine(EnableLandingPad());
+	}
+
+	IEnumerator EnableLandingPad()
+	{
+		BoxCollider myBoxCollider = GetComponent<BoxCollider>();
+		yield return new WaitForSeconds(5f);
+		myBoxCollider.isTrigger = true;
+		boxCollider.isTrigger = true;
+	}
 
 	void OnTriggerEnter(Collider other)
 	{
@@ -17,8 +32,15 @@ public class CollisionHandler : MonoBehaviour {
 		{
 			StartDeathSequence();
 			deathFX.SetActive(true);
-			Invoke("ReloadScene", levelLoadDelay);
+			endCanvas.successful = false;
 		}
+		else 
+		{ 
+			endCanvas.successful = true;
+		}
+
+		endCanvas.isEnd = true;
+		Invoke("ReloadScene", levelLoadDelay);
 	}
 
 	private void StartDeathSequence()
@@ -28,6 +50,6 @@ public class CollisionHandler : MonoBehaviour {
 
 	private void ReloadScene() // string referenced
 	{
-		SceneManager.LoadScene(1);
+		SceneManager.LoadScene("End");
 	}
 }

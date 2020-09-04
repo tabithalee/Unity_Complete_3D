@@ -700,25 +700,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 1117987537354710, guid: 6f028160ac08467459adb9a7572ae09d, type: 2}
-      propertyPath: m_Name
-      value: Rocket Light
-      objectReference: {fileID: 0}
-    - target: {fileID: 82706240196501942, guid: 6f028160ac08467459adb9a7572ae09d,
-        type: 2}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 82706240196501942, guid: 6f028160ac08467459adb9a7572ae09d,
-        type: 2}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 82706240196501942, guid: 6f028160ac08467459adb9a7572ae09d,
-        type: 2}
-      propertyPath: Loop
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6f028160ac08467459adb9a7572ae09d, type: 2}
   m_IsPrefabParent: 0

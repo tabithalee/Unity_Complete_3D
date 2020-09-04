@@ -56,10 +56,10 @@
      <Compile Include="Assets\Oscillator.cs" />
      <Compile Include="Assets\Rocket.cs" />
  <Reference Include="UnityEditor.StandardEvents">
- <HintPath>C:/Users/tabit/Documents/Repos/Unity_Complete_3D/3_Project_Boost/3_Project_Boost/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+ <HintPath>C:/Users/tabit/Documents/1 My Actual Documents/Repos/Unity_Complete_3D/3_Project_Boost/3_Project_Boost/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>C:/Users/tabit/Documents/Repos/Unity_Complete_3D/3_Project_Boost/3_Project_Boost/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>C:/Users/tabit/Documents/1 My Actual Documents/Repos/Unity_Complete_3D/3_Project_Boost/3_Project_Boost/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
