@@ -24,6 +24,11 @@ public class Ammo : MonoBehaviour
         GetAmmoSlot(ammoType).ammoAmount--;
     }
 
+    public void IncreaseCurrentAmmo(AmmoType ammoType, int increaseAmount)
+    {
+        GetAmmoSlot(ammoType).ammoAmount += increaseAmount;
+    }
+
     private AmmoSlot GetAmmoSlot(AmmoType ammoType)
     {
         foreach (AmmoSlot slot in ammoSlots)
